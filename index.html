@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fábrica de Shorts</title>
+<meta name="description" content="Videos cortos animados para tu canal o negocio, hechos con Claude en tu computador. Pago único.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;800&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FFF7E6;--ink:#1E1B3A;--muted:#5C5875;--noche:#241A4A;--foco:#FFD23F;--coral:#FF6B4A;--verde:#2BB673;--card:#FFFFFF;--line:#EADFCB}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#17122E;--ink:#F6F2FF;--muted:#B9B2D6;--card:#221B44;--line:#3A3066}}
+:root[data-theme="dark"]{--bg:#17122E;--ink:#F6F2FF;--muted:#B9B2D6;--card:#221B44;--line:#3A3066}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 'Poppins',system-ui,sans-serif}
+a{color:inherit}
+.w{max-width:1080px;margin:0 auto;padding:0 16px}
+header{background:var(--noche);color:#fff;position:relative;overflow:hidden}
+header::after{content:"";position:absolute;inset:auto 0 0 0;height:34px;background:repeating-linear-gradient(-45deg,var(--ink) 0 30px,var(--foco) 30px 60px)}
+.top{display:flex;justify-content:space-between;align-items:center;padding:18px 0}
+.logo{font-weight:800;font-size:20px;display:flex;gap:10px;align-items:center}
+.logo i{width:30px;height:30px;border-radius:9px;background:var(--coral);position:relative}
+.logo i::after{content:"";position:absolute;left:11px;top:8px;border-left:11px solid #fff;border-top:7px solid transparent;border-bottom:7px solid transparent}
+.top nav a{margin-left:18px;text-decoration:none;font-weight:600;opacity:.85}
+.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center;padding:40px 0 80px}
+h1{font-size:clamp(36px,5.4vw,60px);line-height:1.05;margin:0 0 18px;font-weight:800}
+h1 em{font-style:normal;color:var(--foco)}
+.lead{font-size:19px;opacity:.9;max-width:52ch}
+.btn{display:inline-block;background:var(--coral);color:#fff;text-decoration:none;font-weight:800;padding:15px 26px;border-radius:14px;box-shadow:0 6px 0 rgba(0,0,0,.25)}
+.btn.sec{background:transparent;border:2px solid currentColor;box-shadow:none}
+.cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:26px}
+.phone{justify-self:center;width:min(300px,100%);aspect-ratio:9/16;border-radius:28px;border:8px solid var(--ink);background:#000;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.4)}
+.phone video{width:100%;height:100%;object-fit:cover;display:block}
+section{padding:72px 0}
+.kicker{font-family:'Space Mono',monospace;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--coral);margin:0 0 8px}
+h2{font-size:clamp(28px,3.6vw,40px);line-height:1.15;margin:0 0 14px;font-weight:800}
+.sub{color:var(--muted);max-width:62ch;margin:0 0 30px}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(240px,1fr))}
+.card{background:var(--card);border:2px solid var(--line);border-radius:18px;padding:22px}
+.card h3{margin:0 0 6px;font-size:19px}
+.card p{margin:0;color:var(--muted)}
+.ej{font-family:'Space Mono',monospace;font-size:14px;background:var(--bg);border:1px dashed var(--line);border-radius:10px;padding:10px 12px;margin-top:12px;color:var(--ink)}
+.pasos{counter-reset:p;display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.paso{counter-increment:p;position:relative;padding-top:58px}
+.paso::before{content:counter(p);position:absolute;top:18px;left:22px;width:34px;height:34px;border-radius:50%;background:var(--foco);color:var(--ink);font-weight:800;display:grid;place-items:center}
+.chat{background:var(--noche);color:#fff;border-radius:18px;padding:22px;font-size:15px;max-width:640px}
+.chat p{margin:0 0 12px;padding:10px 14px;border-radius:14px;max-width:85%}
+.chat .u{background:var(--coral);margin-left:auto}
+.chat .c{background:rgba(255,255,255,.1)}
+ul.check{list-style:none;padding:0;margin:0}
+ul.check li{padding:8px 0 8px 34px;position:relative;border-bottom:1px solid var(--line)}
+ul.check li::before{content:"✓";position:absolute;left:0;top:7px;width:24px;height:24px;border-radius:50%;background:var(--verde);color:#fff;font-weight:800;font-size:14px;display:grid;place-items:center}
+.precio{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.monto{font-size:52px;font-weight:800;line-height:1}
+.pendiente{background:var(--foco);color:var(--ink);font-family:'Space Mono',monospace;font-size:13px;padding:2px 8px;border-radius:6px}
+details{background:var(--card);border:2px solid var(--line);border-radius:14px;padding:16px 20px;margin-bottom:10px}
+summary{font-weight:800;cursor:pointer}
+details p{color:var(--muted);margin:10px 0 0}
+footer{background:var(--noche);color:#fff;padding:36px 0;font-size:14px;opacity:.95}
+footer p{margin:6px 0;opacity:.8}
+@media (max-width:760px){.hero{grid-template-columns:1fr;padding-bottom:70px}.top nav{display:none}.precio{grid-template-columns:1fr}section{padding:52px 0}}
+</style>
+</head>
+<body>
+<header>
+  <div class="w">
+    <div class="top"><div class="logo"><i></i>Fábrica de Shorts</div><nav><a href="#como">Cómo funciona</a><a href="#precio">Precio</a><a href="#dudas">Dudas</a></nav></div>
+    <div class="hero">
+      <div>
+        <h1>Tu canal con videos animados <em>sin grabarte ni editar</em>.</h1>
+        <p class="lead">Le dices a Claude "hazme 3 videos" y en tu computador salen videos verticales listos para TikTok, YouTube Shorts e Instagram: guion, voz, animación, subtítulos, música y efectos. En tu nicho, con tu forma de hablar.</p>
+        <div class="cta"><a class="btn" href="#precio">Quiero mi Fábrica · $9.990</a><a class="btn sec" href="#demo">Ver un ejemplo</a></div>
+      </div>
+      <div class="phone" id="demo"><video src="demo.mp4" controls playsinline preload="metadata" poster="portada.jpg"></video></div>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="w">
+    <p class="kicker">Escena 1 · Para quién</p>
+    <h2>Funciona para cualquier nicho</h2>
+    <p class="sub">El sistema te pregunta de qué trata tu canal, a quién le hablas y cómo hablas. Algunos ejemplos de lo que le puedes pedir:</p>
+    <div class="grid">
+      <div class="card"><h3>Finanzas personales</h3><p>Tarjetas, deudas, ahorro, con humor y fuentes oficiales.</p><div class="ej">"hazme 3 videos sobre errores con la tarjeta de crédito"</div></div>
+      <div class="card"><h3>Cafetería o restaurante</h3><p>Tu carta, tus trucos, historias de la cocina.</p><div class="ej">"un video de por qué nuestro café se muele al momento"</div></div>
+      <div class="card"><h3>Salud y bienestar</h3><p>Educativo y con fuentes, sin promesas.</p><div class="ej">"5 videos de mitos sobre el sueño"</div></div>
+      <div class="card"><h3>Servicios profesionales</h3><p>Contadores, abogados, corredores, talleres.</p><div class="ej">"explica la declaración de renta en 40 segundos"</div></div>
+      <div class="card"><h3>Educación y colegios</h3><p>Datos curiosos, tips de estudio, avisos.</p><div class="ej">"3 videos de técnicas para estudiar matemáticas"</div></div>
+      <div class="card"><h3>Marca personal</h3><p>Tu experiencia contada por un personaje o voz en off.</p><div class="ej">"lo que aprendí en 10 años de ventas, en 3 videos"</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="como" style="background:var(--card)">
+  <div class="w">
+    <p class="kicker">Escena 2 · El método</p>
+    <h2>Instalas una vez. Después solo pides.</h2>
+    <p class="sub">Claude ya trae todo el contexto: sabe qué preguntarte, en qué orden, y cómo producir cada video de punta a punta.</p>
+    <div class="pasos">
+      <div class="card paso"><h3>Abres la carpeta en Claude</h3><p>Descargas la Fábrica, la abres en la app de Claude (pestaña Code) y escribes "hola". Claude instala lo que falta.</p></div>
+      <div class="card paso"><h3>Configuras tu canal en una conversación</h3><p>Pegas tu clave en el panel, eliges la voz escuchándolas, subes 4 videos que te gusten como referencia y respondes de qué trata tu canal.</p></div>
+      <div class="card paso"><h3>Pides videos</h3><p>"Hazme 3 videos." Apruebas los guiones y Claude entrega cada video con su título, descripción y hashtags listos para copiar.</p></div>
+    </div>
+    <div style="margin-top:34px" class="chat">
+      <p class="u">hazme 3 videos sobre errores al pedir un préstamo</p>
+      <p class="c">Te propongo estos 3 guiones (con fuentes oficiales). ¿Los apruebas o cambio algo?</p>
+      <p class="u">ok, dale</p>
+      <p class="c">Listos los 3 en "Mis videos". Escúchalos antes de publicar y activa la etiqueta de IA en cada app.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="w">
+    <p class="kicker">Lo que hace por ti</p>
+    <h2>Todo el trabajo pesado, automático</h2>
+    <div class="grid">
+      <ul class="check card"><li>Guion con gancho de 3 segundos</li><li>Tu forma de hablar y tus modismos</li><li>Tu experiencia como "dato del experto"</li><li>Fuentes oficiales para cada dato</li></ul>
+      <ul class="check card"><li>Voz natural (tú eliges entre 30)</li><li>Animación por código, distinta en cada video</li><li>Subtítulos sincronizados palabra por palabra</li><li>Personaje animado propio (opcional)</li></ul>
+      <ul class="check card"><li>Efectos de sonido y música de fondo</li><li>Volumen y formato correctos para cada app</li><li>Revisión de texto cortado y zonas seguras</li><li>Título, descripción y 4 hashtags</li></ul>
+    </div>
+  </div>
+</section>
+
+<section id="precio" style="background:var(--card)">
+  <div class="w">
+    <p class="kicker">Escena 3 · El precio</p>
+    <h2>Pago único. Los videos son tuyos.</h2>
+    <div class="precio">
+      <div class="card">
+        <p class="kicker" style="margin-bottom:4px">Precio de lanzamiento · primeros 50</p>
+        <div class="monto">$9.990 <span style="font-size:20px;font-weight:600;color:var(--muted)">CLP</span></div>
+        <p style="color:var(--muted)">Pago único, sin mensualidad de la Fábrica. Después de los primeros 50 compradores sube a <b>$19.990</b>.</p>
+        <ul class="check"><li>La Fábrica completa (carpeta para Claude + panel)</li><li>Un video de ejemplo para ver cómo queda</li><li>Actualizaciones gratis por 12 meses</li><li>Garantía de 7 días: si no logras instalarla ni hacer tu primer video, te devolvemos el 100 %</li><li>Ayuda por <a href="https://wa.me/56981939650" target="_blank" rel="noopener">WhatsApp</a> y <a href="mailto:contacto@velionix.cl">correo</a></li></ul>
+        <div class="cta"><a class="btn" href="https://link.mercadopago.cl/velionix" target="_blank" rel="noopener">Quiero mi Fábrica · $9.990</a></div>
+        <p class="nota" style="margin-top:10px">Pago seguro con Mercado Pago. Te enviamos la descarga por correo dentro de 1 día hábil. Al comprar aceptas los <a href="legal.html#terminos">términos</a>.</p>
+      </div>
+      <div class="card">
+        <h3>Lo que necesitas aparte</h3>
+        <ul class="check">
+          <li>Computador con Windows 10/11 (Mac: aún no probado)</li>
+          <li>Claude de pago con Claude Code (app de escritorio). Revisa los planes en claude.com/pricing</li>
+          <li>Cuenta de OpenRouter con saldo para la voz: en nuestras pruebas, del orden de un centavo de dólar por video</li>
+          <li>Unos 2 GB libres e internet para la instalación</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="dudas">
+  <div class="w">
+    <p class="kicker">Escena 4 · Las dudas</p>
+    <h2>Antes de comprar</h2>
+    <details><summary>No sé nada de tecnología. ¿Puedo usarla?</summary><p>Sí. Tú solo conversas con Claude, pegas una clave en un panel y eliges con clics. Claude instala y corre todo lo técnico.</p></details>
+    <details><summary>Mi nicho es raro. ¿Sirve igual?</summary><p>Sí. El sistema no viene con un tema fijo: te pregunta el tuyo y aprende tu estilo de 4 videos de referencia que tú eliges.</p></details>
+    <details><summary>¿Y si no me funciona?</summary><p>Tienes 7 días desde la compra. Si con nuestra ayuda por WhatsApp no logras instalarla ni producir tu primer video, te devolvemos el 100 %. Escríbenos al +56 9 8193 9650 o a contacto@velionix.cl con tu comprobante de Mercado Pago.</p></details>
+    <details><summary>¿Recibo las mejoras que salgan?</summary><p>Sí. Las actualizaciones (mejoras y correcciones) son gratis durante 12 meses desde tu compra. Después, tu versión sigue funcionando igual.</p></details>
+    <details><summary>¿Garantiza vistas o seguidores?</summary><p>No. Ningún sistema puede garantizarlo. Te da videos bien hechos y constantes; el resultado depende de tu nicho, tus temas y las plataformas.</p></details>
+    <details><summary>¿Puedo usarlo desde el celular?</summary><p>Para crear, no: necesitas un computador. El celular sirve para publicar los videos terminados.</p></details>
+    <details><summary>¿Cuántos videos puedo hacer?</summary><p>La Fábrica no pone límite. El límite lo ponen tu plan de Claude (uso por período) y tu saldo de OpenRouter (voz).</p></details>
+    <details><summary>¿Tengo que tener un personaje?</summary><p>No, es opcional. Puedes usar voz en off con animaciones, o pedirle a Claude que diseñe una mascota propia para tu canal.</p></details>
+    <details><summary>¿Los videos dicen que son hechos con IA?</summary><p>Sí: al publicar debes activar la etiqueta de contenido generado con IA en cada app. El sistema te lo recuerda en cada video.</p></details>
+    <details><summary>¿Puedo usar los videos para mi negocio?</summary><p>Sí, los videos que produces son tuyos. La música que agregues debe tener licencia (el panel te pide anotar su fuente).</p></details>
+  </div>
+</section>
+
+<footer>
+  <div class="w">
+    <div class="logo" style="margin-bottom:10px"><i></i>Fábrica de Shorts</div>
+    <p>Producto independiente. No está afiliado a Anthropic, OpenRouter, Google ni HeyGen.</p>
+    <p>Animación con HyperFrames (código abierto, Apache-2.0) instalado desde su repositorio oficial; reconocimiento de voz con whisper.cpp (MIT).</p>
+    <p style="opacity:1;margin-top:14px"><b>Producto desarrollado por Velionix</b> · <a href="mailto:contacto@velionix.cl">contacto@velionix.cl</a> · <a href="https://wa.me/56981939650" target="_blank" rel="noopener">WhatsApp +56 9 8193 9650</a></p>
+    <p><a href="legal.html#terminos">Términos y condiciones</a> · <a href="legal.html#privacidad">Privacidad</a></p>
+  </div>
+</footer>
+<a href="https://wa.me/56981939650?text=Hola%2C%20tengo%20una%20duda%20sobre%20F%C3%A1brica%20de%20Shorts" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp" style="position:fixed;right:16px;bottom:16px;z-index:50;display:flex;align-items:center;gap:8px;background:#25D366;color:#fff;font-weight:700;text-decoration:none;padding:12px 18px;border-radius:999px;box-shadow:0 6px 20px rgba(0,0,0,.25);font-size:15px"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg>WhatsApp</a>
+</body>
+</html>
