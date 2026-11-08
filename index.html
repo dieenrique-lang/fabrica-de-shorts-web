@@ -205,6 +205,13 @@ details[open] .mas::after{transform:translate(-50%,-50%) rotate(0deg)}
 .pc.main .lista{margin:22px 0 26px}
 .pc .btn{width:100%;justify-content:center}
 .nota{font-size:14px;color:var(--muted);margin-top:14px}
+.compra{list-style:none;counter-reset:c;margin-top:22px;padding-top:20px;border-top:1px solid var(--linea);display:grid;gap:10px}
+.compra li{counter-increment:c;position:relative;padding-left:38px;font-size:15px;color:var(--muted)}
+.compra li b{color:var(--texto)}
+.compra li::before{content:counter(c);position:absolute;left:0;top:-1px;width:26px;height:26px;border-radius:8px;background:var(--papel);color:var(--indigo);font:700 14px/26px "Bricolage Grotesque";text-align:center}
+.btn-pague{display:flex;justify-content:center;align-items:center;gap:8px;margin-top:16px;padding:13px 20px;border-radius:999px;font-weight:700;font-size:16px;text-decoration:none;color:#0b5c2c;background:#E3F9EA;box-shadow:inset 0 0 0 1.5px #25D366;transition:transform .3s var(--spring)}
+.btn-pague::before{content:"";width:10px;height:10px;border-radius:50%;background:#25D366}
+.btn-pague:hover{transform:translateY(-2px)}
 .pc.side .lista li{color:rgba(255,255,255,.85)}
 .pc.side .lista li::before{background-color:rgba(255,255,255,.18)}
 @media (max-width:860px){.precio{grid-template-columns:1fr}}
@@ -370,7 +377,13 @@ footer a{color:#fff}
         <p style="color:var(--muted)">Después de los primeros 50 compradores sube a <b>$19.990</b>.</p>
         <ul class="lista"><li>La Fábrica completa (carpeta para Claude + panel)</li><li>Un video de ejemplo para ver cómo queda</li><li>Actualizaciones gratis por 12 meses</li><li>Garantía de 7 días: si no logras instalarla ni hacer tu primer video, te devolvemos el 100 %</li><li>Ayuda por <a href="https://wa.me/56981939650" target="_blank" rel="noopener">WhatsApp</a> y <a href="mailto:contacto@velionix.cl">correo</a></li></ul>
         <a class="btn" href="https://link.mercadopago.cl/velionix" target="_blank" rel="noopener">Quiero mi Fábrica · $9.990 <span class="fl">→</span></a>
-        <p class="nota">Pago seguro con Mercado Pago. Te enviamos la descarga por correo dentro de 1 día hábil. Al comprar aceptas los <a href="legal.html#terminos">términos</a>.</p>
+        <p class="nota">Pago seguro con Mercado Pago. Al comprar aceptas los <a href="legal.html#terminos">términos</a>.</p>
+        <ol class="compra">
+          <li><b>Pagas</b> en Mercado Pago.</li>
+          <li><b>Nos avisas por WhatsApp</b> con tu correo.</li>
+          <li><b>Revisamos tu pago</b> y te compartimos tu carpeta por Google Drive, a tu correo, dentro de 1 día hábil.</li>
+        </ol>
+        <a class="btn-pague" href="https://wa.me/56981939650?text=Hola%2C%20ya%20pagu%C3%A9%20la%20F%C3%A1brica%20de%20Shorts.%20Mi%20correo%20es%3A%20___%20por%20favor%20necesito%20comunicarme%20con%20un%20ejecutivo" target="_blank" rel="noopener">Ya pagué: avisar por WhatsApp</a>
       </div>
       <div class="pc side ap" style="transition-delay:120ms">
         <h3>Lo que necesitas aparte</h3>
@@ -392,6 +405,8 @@ footer a{color:#fff}
       <details><summary>No sé nada de tecnología. ¿Puedo usarla?<span class="mas"></span></summary><p>Sí. Tú solo conversas con Claude, pegas una clave en un panel y eliges con clics. Claude instala y corre todo lo técnico.</p></details>
       <details><summary>Mi nicho es raro. ¿Sirve igual?<span class="mas"></span></summary><p>Sí. El sistema no viene con un tema fijo: te pregunta el tuyo y aprende tu estilo de 4 videos de referencia que tú eliges.</p></details>
       <details><summary>¿Cómo se empieza?<span class="mas"></span></summary><p>Descomprimes la carpeta, la abres en la app de Claude (pestaña Code) y escribes "hola": Claude instala todo y te guía. Mira el paso a paso en la <a href="guia-fabrica-de-shorts.pdf" target="_blank">Guía de inicio (PDF)</a>.</p></details>
+      <details><summary>Ya pagué. ¿Cómo recibo la Fábrica?<span class="mas"></span></summary><p>Escríbenos por <a href="https://wa.me/56981939650?text=Hola%2C%20ya%20pagu%C3%A9%20la%20F%C3%A1brica%20de%20Shorts.%20Mi%20correo%20es%3A%20___%20por%20favor%20necesito%20comunicarme%20con%20un%20ejecutivo" target="_blank" rel="noopener">WhatsApp</a> con tu correo. Una persona del equipo te contacta en un máximo de 2 horas (entre 9:00 y 21:00), revisa tu pago y te comparte la carpeta por Google Drive, a tu correo, dentro de 1 día hábil. Va por Drive porque los correos bloquean este tipo de archivos adjuntos.</p></details>
+      <details><summary>¿Puedo compartir o revender la carpeta?<span class="mas"></span></summary><p>No. La licencia es personal: cada copia va marcada con un código de su comprador. Las actualizaciones y el soporte son solo para compradores registrados.</p></details>
       <details><summary>¿Y si no me funciona?<span class="mas"></span></summary><p>Tienes 7 días desde la compra. Si con nuestra ayuda por WhatsApp no logras instalarla ni producir tu primer video, te devolvemos el 100 %. Escríbenos al +56 9 8193 9650 o a contacto@velionix.cl con tu comprobante de Mercado Pago.</p></details>
       <details><summary>¿Recibo las mejoras que salgan?<span class="mas"></span></summary><p>Sí. Las actualizaciones (mejoras y correcciones) son gratis durante 12 meses desde tu compra. Después, tu versión sigue funcionando igual.</p></details>
       <details><summary>¿Garantiza vistas o seguidores?<span class="mas"></span></summary><p>No. Ningún sistema puede garantizarlo. Te da videos bien hechos y constantes; el resultado depende de tu nicho, tus temas y las plataformas.</p></details>
